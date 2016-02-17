@@ -1,0 +1,25 @@
+{
+  "name": "api-client-core",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@bitbucket.es.ad.adp.com:7999/am/api-client-node-core.git"
+  },
+  "author": "ADP Marketplace",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.69.0",
+    "winston": "^2.1.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^2.1.0",
+    "jsdoc": "^3.4.0",
+    "mocha": "^2.4.5"
+  }
+}
