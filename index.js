@@ -16,6 +16,7 @@ governing permissions and limitations under the License.
 
 'use strict';
 
+var adpApiProduct = require('./lib/adpApiProduct');
 var apiProductInstance = require('./lib/apiProductInstance');
 var apiRequest = require('./lib/apiRequest');
 var interpolate = require('./lib/interpolate');
@@ -24,6 +25,7 @@ var post = require('./lib/post');
 var tmpMap = require('./lib/tmpMap');
 
 module.exports = {
+	adpApiProduct: adpApiProduct,
 	apiProductInstance: apiProductInstance,
 	apiRequest: apiRequest,
 	interpolate: interpolate,
