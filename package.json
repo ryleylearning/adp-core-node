@@ -10,14 +10,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@bitbucket.es.ad.adp.com:7999/am/api-client-node-core.git"
+    "url": "ssh://git@bitbucket.es.ad.adp.com:7999/acl/adp-client-core-node.git"
   },
   "author": "ADP Marketplace",
   "license": "ISC",
   "dependencies": {
     "request": "^2.69.0",
-    "winston": "^2.1.1",
-    "adp": "git+ssh://git@bitbucket.es.ad.adp.com:7999/am/api-client-node-es5.git"
+    "winston": "^2.1.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",
