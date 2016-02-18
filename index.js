@@ -24,6 +24,9 @@ var interpolate = require('./lib/interpolate');
 var mapProducts = require('./lib/mapProducts');
 var post = require('./lib/post');
 var tmpMap = require('./lib/tmpMap');
+var connectionException = require('./lib/connectionException');
+var configurationException = require('./lib/configurationException');
+var apiException = require('./lib/apiException');
 
 module.exports = {
 	adpApiProduct: adpApiProduct,
@@ -32,5 +35,8 @@ module.exports = {
 	interpolate: interpolate,
 	mapProducts: mapProducts,
 	post: post,
-	tmpMap: tmpMap
+	tmpMap: tmpMap,
+	connectionException: connectionException,
+	configurationException: configurationException,
+	apiException: apiException
 };
