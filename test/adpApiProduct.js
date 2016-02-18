@@ -57,7 +57,6 @@ describe('ADP API Product module tests', function describeCb(){
 		var apiProductInstance = new AdpApiProduct().createApiProduct(connection, 'UserInfo');
 		apiProductInstance.call('Invalid', {}, function readCb(err, data){
 			(err instanceof ReferenceError).should.equal(true);
-			console.log('ERR', err, 'DATA', data);
 			done();
 		});
 	});		
