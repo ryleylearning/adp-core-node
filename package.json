@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@bitbucket.es.ad.adp.com:7999/acl/adp-client-core-node.git"
+    "url": "ssh://git@github.com:adplabs/adp-core-node.git"
   },
   "author": "ADP Marketplace",
   "license": "ISC",
