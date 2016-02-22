@@ -11,7 +11,6 @@ $ npm install adp-core
 # Usage 
 This library is used with ADP Connection and ADP Product libraries.
 
-```
 # Contributing
 To contribute to the library, please generate a pull request. Before generating the pull request, please insure the following:
 1. Appropriate unit tests have been updated or created.
