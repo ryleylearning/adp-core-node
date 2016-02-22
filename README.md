@@ -18,9 +18,6 @@ To contribute to the library, please generate a pull request. Before generating 
 3. Your code updates have been fully tested and linted with no errors. 
 4. Update README and API documentation as appropriate.
 
-# Sample Client
-A sample client is provided to demonstrate usage of the libraries. The sample client connects to a sandbox environment hosted by ADP, and comes preconfigured with the necessary credentials and certificates to connect to the sandbox server.
-
 # API Documentation (JSDoc)
 ```sh
 $ npm run docs
