@@ -1,6 +1,5 @@
-# ADP User Info Library
+# ADP Core Library
 
-### Description
 The ADP Core library houses utilities used with ADP Connection and ADP Product libraries.
 
 ### Installation
