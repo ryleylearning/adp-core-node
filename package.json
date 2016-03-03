@@ -17,6 +17,7 @@
   "license": "ISC",
   "dependencies": {
     "json-schema-compatibility": "^1.1.0",
+    "lodash": "^4.6.1",
     "request": "^2.69.0",
     "underscore": "^1.8.3",
     "winston": "^2.1.1"
