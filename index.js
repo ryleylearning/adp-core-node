@@ -27,6 +27,7 @@ var tmpMap = require('./lib/tmpMap');
 var connectionException = require('./lib/connectionException');
 var configurationException = require('./lib/configurationException');
 var apiException = require('./lib/apiException');
+var apiProductHelper = require('./lib/apiProductHelper');
 
 module.exports = {
 	adpApiProduct: adpApiProduct,
@@ -38,5 +39,6 @@ module.exports = {
 	tmpMap: tmpMap,
 	connectionException: connectionException,
 	configurationException: configurationException,
-	apiException: apiException
+	apiException: apiException,
+	apiProductHelper: apiProductHelper
 };
