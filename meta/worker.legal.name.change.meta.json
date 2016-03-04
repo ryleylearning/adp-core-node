@@ -11,7 +11,7 @@
         "hidden" : true
       }
     },
-    "/data/transforms" : [
+    "/data/transform" : [
       {
         "/worker/person/legalName/generationAffixCode" : {
           "codeList" : {
