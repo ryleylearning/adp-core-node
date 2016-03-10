@@ -29,6 +29,7 @@ var configurationException = require('./lib/configurationException');
 var apiException = require('./lib/apiException');
 var apiProductHelper = require('./lib/apiProductHelper');
 var event = require('./lib/event');
+var objectPath = require('./lib/objectPath');
 
 module.exports = {
 	adpApiProduct: adpApiProduct,
@@ -42,5 +43,6 @@ module.exports = {
 	configurationException: configurationException,
 	apiException: apiException,
 	apiProductHelper: apiProductHelper,
-	event: event
+	event: event,
+	objectPath: objectPath
 };
