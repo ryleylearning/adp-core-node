@@ -28,7 +28,6 @@ var connectionException = require('./lib/connectionException');
 var configurationException = require('./lib/configurationException');
 var apiException = require('./lib/apiException');
 var event = require('./lib/event');
-var objectPath = require('./lib/objectPath');
 
 module.exports = {
 	adpApiProduct: adpApiProduct,
@@ -41,6 +40,5 @@ module.exports = {
 	connectionException: connectionException,
 	configurationException: configurationException,
 	apiException: apiException,
-	event: event,
-	objectPath: objectPath
+	event: event
 };
