@@ -27,7 +27,6 @@ var tmpMap = require('./lib/tmpMap');
 var connectionException = require('./lib/connectionException');
 var configurationException = require('./lib/configurationException');
 var apiException = require('./lib/apiException');
-var apiProductHelper = require('./lib/apiProductHelper');
 var event = require('./lib/event');
 var objectPath = require('./lib/objectPath');
 
@@ -42,7 +41,6 @@ module.exports = {
 	connectionException: connectionException,
 	configurationException: configurationException,
 	apiException: apiException,
-	apiProductHelper: apiProductHelper,
 	event: event,
 	objectPath: objectPath
 };
