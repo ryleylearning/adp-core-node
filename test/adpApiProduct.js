@@ -47,7 +47,7 @@ describe('ADP API Product module tests', function describeCb(){
 
 	it('Should call method on API Product instance.', function itCb(done) {
 		var apiProductInstance = new AdpApiProduct().createApiProduct(connection, 'UserInfo');
-		apiProductInstance.call('read', {}, function readCb(err, data){
+		apiProductInstance.exec('read', {}, function readCb(err, data){
 			(err === null).should.equal(false);
 			done();
 		});
@@ -55,7 +55,7 @@ describe('ADP API Product module tests', function describeCb(){
 
 	it('Should fail to call invalid method on API Product instance.', function itCb(done) {
 		var apiProductInstance = new AdpApiProduct().createApiProduct(connection, 'UserInfo');
-		apiProductInstance.call('Invalid', {}, function readCb(err, data){
+		apiProductInstance.exec('Invalid', {}, function readCb(err, data){
 			(err instanceof ReferenceError).should.equal(true);
 			done();
 		});
