@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: adpApiProduct.js</title>
+    <title>JSDoc: Source: defaultPayload.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: adpApiProduct.js</h1>
+    <h1 class="page-title">Source: defaultPayload.js</h1>
 
     
 
@@ -44,41 +44,91 @@ governing permissions and limitations under the License.
 
 'use strict';
 
-var mapProducts = require('./mapProducts');
-var APIProductInstance = require('./apiProductInstance');
 var log = require('winston');
+var _ = require('lodash');
+var jsonSchemaConverter = require('json-schema-compatibility');
 
-/**
-@class ADPAPIProduct
-*/
-function ADPAPIProduct() {
-
-	var mapped = mapProducts();
-
-	/**
-	@private
-	@memberof ADPAPIProduct
-	@description Intialize the {@link APIProductInstance} instance.
-	@returns {void}
-	*/
-	this.createApiProduct = function createApiProduct(connection, productName) {
-		var mappedProduct;
-
-		mapped.forEach(function forEachCb(product) {
-			if(productName === product.productName) {
-				mappedProduct = product;
-			}
-		});
-		if(mappedProduct) {
-			return new APIProductInstance(connection, mappedProduct);
-		} else {
-			log.error('Unable to map api product ' + productName);
-			return null;
+function cleanupSchema(doc){
+	Object.keys(doc).forEach(function cb(key){
+		if(key === 'id' || key === 'optional' || key === '$schema') {
+			delete doc[key];
 		}
-	};
+		if(typeof doc[key] === 'object') {
+			cleanupSchema(doc[key]);
+		}
+	});
 }
 
-module.exports = ADPAPIProduct;
+function schemaToJSON(schema) {
+	var type = schema.type || 'object';
+	var output;
+
+	if (schema.example) {
+		output = schema.example;
+	} else if (_.isUndefined(schema.items) &amp;&amp; _.isArray(schema.enum)) {
+		output = schema.enum[0];
+	}
+
+	if (_.isUndefined(output)) {
+		if (!_.isUndefined(schema.default)) {
+			output = schema.default;
+		} else if (type === 'date-time') {
+			output = new Date().toISOString();
+		} else if (type === 'date') {
+			output = new Date().toISOString().split('T')[0];
+		} else if (type === 'string') {
+			output = 'DELETE_STRING';
+		} else if (type === 'integer') {
+			output = 'DELETE_NUMBER';
+		} else if (type === 'long') {
+			output = 'DELETE_NUMBER';
+		} else if (type === 'float') {
+			output = 'DELETE_NUMBER';
+		} else if (type === 'double') {
+			output = 'DELETE_NUMBER';
+		} else if (type === 'boolean') {
+			output = 'DELETE_BOOLEAN';
+		} else if (type === 'number') {
+			output = 'DELETE_NUMBER';
+		} else if (type === 'object') {
+			output = {};
+
+			_.forEach(schema.properties, function forEachCb(property, name) {
+				output[name] = schemaToJSON(property);
+			});
+		} else if (type === 'array') {
+			output = [];
+
+			if (_.isArray(schema.items)) {
+				_.forEach(schema.items, function forEachCb(item) {
+					output.push(schemaToJSON(item));
+				});
+			} else if (_.isPlainObject(schema.items)) {
+				output.push(schemaToJSON(schema.items));
+			} else if (_.isUndefined(schema.items)) {
+				output.push({});
+			} else {
+				log.info('Array type\'s \'items\' property is not an array or an object, cannot process');
+			}
+		}
+	}
+
+	return output;
+}
+function defaultPayload(schema) {
+	var schemaout = jsonSchemaConverter.v4(schema);
+	cleanupSchema(schemaout);
+	var output = schemaToJSON(schemaout);
+	return output;
+}
+
+/**
+@module defaultPayload
+@description Build default payload for event.
+@param schema {object} schema JSON.
+@return output {object} Formatted and cleaned payload with default values.
+*/
+module.exports = defaultPayload;
 </code></pre>
         </article>
     </section>
