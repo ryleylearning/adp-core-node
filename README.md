@@ -3,7 +3,7 @@
 The ADP Core library houses utilities used with ADP Connection and ADP Product libraries.
 
 ### Version
-`1.0.8`
+`1.0.9`
 
 ### Installation
 ```sh
