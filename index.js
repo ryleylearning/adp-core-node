@@ -17,26 +17,20 @@ governing permissions and limitations under the License.
 
 'use strict';
 
-var adpApiProduct = require('./lib/adpApiProduct');
-var apiProductInstance = require('./lib/apiProductInstance');
+var consumerApplicationInstance = require('./lib/consumerApplicationInstance');
 var apiRequest = require('./lib/apiRequest');
 var interpolate = require('./lib/interpolate');
-var mapProducts = require('./lib/mapProducts');
 var post = require('./lib/post');
 var event = require('./lib/event');
-var tmpMap = require('./lib/tmpMap');
 var connectionException = require('./lib/connectionException');
 var configurationException = require('./lib/configurationException');
 var apiException = require('./lib/apiException');
 
 module.exports = {
-	adpApiProduct: adpApiProduct,
-	apiProductInstance: apiProductInstance,
+	consumerApplicationInstance: consumerApplicationInstance,
 	apiRequest: apiRequest,
 	interpolate: interpolate,
-	mapProducts: mapProducts,
 	post: post,
-	tmpMap: tmpMap,
 	connectionException: connectionException,
 	configurationException: configurationException,
 	apiException: apiException,
