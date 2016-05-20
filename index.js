@@ -23,11 +23,11 @@ var apiRequest = require('./lib/apiRequest');
 var interpolate = require('./lib/interpolate');
 var mapProducts = require('./lib/mapProducts');
 var post = require('./lib/post');
+var event = require('./lib/event');
 var tmpMap = require('./lib/tmpMap');
 var connectionException = require('./lib/connectionException');
 var configurationException = require('./lib/configurationException');
 var apiException = require('./lib/apiException');
-var event = require('./lib/event');
 
 module.exports = {
 	adpApiProduct: adpApiProduct,
