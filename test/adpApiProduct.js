@@ -2,7 +2,6 @@
 require('chai').should();
 
 var APIProductInstance = require('../lib/apiProductInstance');
-var log = require('winston');
 /*
 var adp = require('adp');
 var ClientCredentialsConnType = adp.ClientCredentialsConnType;
