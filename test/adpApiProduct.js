@@ -1,9 +1,9 @@
-'use strict';
+/*'use strict';
 require('chai').should();
 
 var APIProductInstance = require('../lib/apiProductInstance');
 var log = require('winston');
-/*
+
 var adp = require('adp');
 var ClientCredentialsConnType = adp.ClientCredentialsConnType;
 var ConnectionFactory = adp.ADPAPIConnectionFactory;
@@ -20,7 +20,7 @@ var validCCInitObject = {
 }
 var validCCConnType = new ClientCredentialsConnType();
 validCCConnType.init(validCCInitObject);
-*/
+
 var AdpApiProduct = require('../lib/adpApiProduct');
 var connection = {
 	connType: {
@@ -61,4 +61,4 @@ describe('ADP API Product module tests', function describeCb(){
 		});
 	});		
 
-});
+});*/
