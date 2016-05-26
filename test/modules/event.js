@@ -7,6 +7,8 @@ var mockAppConfig = require('../lib/mockAppConfig');
 var event = require('../../lib/event');
 var fs = require('fs');
 var testEvent;
+var testEventTwo;
+var payloadTwo;
 
 describe('Event module tests', function describeCb(){
 
@@ -36,6 +38,18 @@ describe('Event module tests', function describeCb(){
 		});
 	});
 
+	it('Initializes a second event', function itCb(done) {
+		var opts = {
+			conn: mockConnection,
+			apiInfo: mockAppConfig().calls[1],
+			schemaLocation: '../test/lib/'
+		};
+		testEventTwo = event(opts);
+		testEventTwo.init(function initCb(err) {
+			testEventTwo.validate(done);
+		});
+	});
+
 	it('Initializes an event from local source', function itCb(done) {
 		var opts = {
 			conn: mockConnection,
@@ -57,7 +71,7 @@ describe('Event module tests', function describeCb(){
 		payload.events[0].data.transform.worker.person.legalAddress.countryCode = 'US';
 		testEvent.setPayload(payload);
 		testEvent.validate(function validateCb(err, validationErrors) {
-			validationErrors.length.should.equal(7);
+			validationErrors.length.should.equal(8);
 			done();
 		});
 	});
@@ -71,7 +85,7 @@ describe('Event module tests', function describeCb(){
 		payload.events[0].data.transform.worker.person.legalAddress.countryCode = 'AA';
 		testEvent.setPayload(payload);
 		testEvent.validate(function validateCb(err, validationErrors) {
-			validationErrors.length.should.equal(5);
+			validationErrors.length.should.equal(6);
 			done();
 		});
 	});

@@ -1,7 +1,7 @@
 'use strict';
 require('chai').should();
 
-var interpolate = require('../lib/interpolate');
+var interpolate = require('../../lib/interpolate');
 
 describe('Interpolate module tests', function describeCb(){
 

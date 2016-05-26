@@ -1,7 +1,7 @@
 'use strict';
 require('chai').should();
 
-var APIException = require('../lib/apiException');
+var APIException = require('../../lib/apiException');
 
 describe('API Exception module tests', function describeCb(){
 

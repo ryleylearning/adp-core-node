@@ -1,7 +1,7 @@
 'use strict';
 require('chai').should();
 
-var ConfigurationException = require('../lib/configurationException');
+var ConfigurationException = require('../../lib/configurationException');
 
 describe('Configuration Exception module tests', function describeCb(){
 

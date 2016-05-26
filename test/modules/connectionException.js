@@ -1,7 +1,7 @@
 'use strict';
 require('chai').should();
 
-var ConnectionException = require('../lib/connectionException');
+var ConnectionException = require('../../lib/connectionException');
 
 describe('Connection Exception module tests', function describeCb(){
 

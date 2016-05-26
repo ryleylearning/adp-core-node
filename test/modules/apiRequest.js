@@ -7,7 +7,7 @@ var mockAppConfig = require('../lib/mockAppConfig');
 var consumerApp = require('../../lib/consumerApplicationInstance');
 var fs = require('fs');
 var app;
-describe('Consumer Application Instance module tests', function describeCb(){
+describe('API Request module tests', function describeCb(){
 
 	before(function beforeCb(done) {
 		try{
@@ -22,7 +22,7 @@ describe('Consumer Application Instance module tests', function describeCb(){
 		mockServer.stop(done);
 	});
 
-	it('Executes a GET API', function itCb(done) {
+	it('Hndles error response', function itCb(done) {
 		app = consumerApp(mockConnection, mockAppConfig());
 		app.exec('test_fail_one', {}, function execCb(err) {
 			err.message.should.equal('mock app.test_fail_one responded with status code 500');
@@ -30,10 +30,10 @@ describe('Consumer Application Instance module tests', function describeCb(){
 		});
 	});
 
-	it('Executes a GET API', function itCb(done) {
+	it('Successful GET request with invalid json response', function itCb(done) {
 		app = consumerApp(mockConnection, mockAppConfig());
 		app.exec('test_fail_two', {}, function execCb(err) {
-			err.message.should.equal('mock app.test_fail_two responded with status code 200');
+			err.message.should.equal('Invalid JSON. mock app.test_fail_two responded with status code 200');
 			done();
 		});
 	});

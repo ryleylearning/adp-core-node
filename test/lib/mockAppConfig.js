@@ -10,7 +10,15 @@ module.exports = function mockConfig() {
 				'metaPath': '/testmeta',
 				'method': 'POST',
 				'methodName': 'test_event',
-				'schemaName': 'testSchema'
+				'schemaName': 'testAddressSchema'
+			},
+			{
+				'canonicalUri': '/hr/workerInformationManagement/workerManagement/addressManagement/worker.legalName.change',
+				'path': '/testeventtwo',
+				'metaPath': '/testmetatwo',
+				'method': 'POST',
+				'methodName': 'test_event_two',
+				'schemaName': 'testNameSchema'
 			},
 			{
 				'canonicalUri': '/hr/workerInformationManagement/workerManagement/addressManagement/worker.legalAddress.change',
