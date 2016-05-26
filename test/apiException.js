@@ -8,10 +8,9 @@ describe('API Exception module tests', function describeCb(){
 	it('Should return exception object.', function itCb(done) {
 		var errObj = {
 			statusCode: 302
-		}
+		};
 		var ex = new APIException(errObj);
-		(ex.statusDesc).should.equal('Found');
-		console.log(ex);
+		ex.statusDesc.should.equal('Found');
 		done();
 	});
 });
