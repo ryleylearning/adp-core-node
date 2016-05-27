@@ -65,17 +65,29 @@ describe('Consumer Application Instance module tests', function describeCb(){
 		});
 	});
 
-	it('Save an event', function itCb(done) {
+	it('Fail 9 validations while saving an event', function itCb(done) {
 		app.saveEvent(eventPayload, function execCb(err, data) {
-			data.value.should.equal(1);
+			console.log(err, data);
+			err.length.should.equal(9);
 			done();
 		});
 	});
 
-	it('Fail validations while saving an event', function itCb(done) {
-		eventPayload.events[0].data.transform.worker.person.legalAddress.cityName = '';
+	it('Save an event', function itCb(done) {
+		eventPayload.events[0].data.eventContext.worker.associateOID = '123';
+		eventPayload.events[0].data.transform.worker.person.legalAddress.countryCode = 'AA';
+		eventPayload.events[0].data.transform.worker.person.legalAddress.postalCode = '123456';
+		eventPayload.events[0].data.transform.worker.person.legalAddress.cityName = 'some city';
+		eventPayload.events[0].data.transform.worker.person.legalAddress.lineOne = [{some: 'Suite'}];
+		eventPayload.events[0].data.transform.worker.person.legalAddress.lineTwo = 'Suite';
+		eventPayload.events[0].data.transform.worker.person.legalAddress.lineThree = '123';
+		eventPayload.events[0].data.transform.worker.person.legalAddress.lineFour = '123';
+		eventPayload.events[0].data.transform.worker.person.legalAddress.lineFive = '123';
+		eventPayload.events[0].data.transform.worker.person.legalAddress.countrySubdivisionLevel2 = {longName: '1231'};
+		// console.log('eventPayload.events[0].data.eventContext.worker.associateOID', eventPayload.events[0].data.eventContext.worker.associateOID);
+		// console.log(JSON.stringify(eventPayload));
 		app.saveEvent(eventPayload, function execCb(err, data) {
-			err.length.should.equal(2);
+			data.value.should.equal(1);
 			done();
 		});
 	});

@@ -9,20 +9,17 @@ module.exports = function meta() {
                         'readOnly': false,
                         'optional': false,
                         'hidden': false,
-                        'maxLength': 40,
                         'shortLabelName': 'Address',
                         'longLabelName': 'Address',
-                        'minItems': 0,
-                        'maxItems': 0
+                        'minItems': 1,
+                        'maxItems': 1
                     },
                     '/worker/person/legalAddress/lineTwo': {
                         'readOnly': false,
                         'optional': true,
                         'hidden': false,
                         'maxLength': 40,
-                        'pattern': '(Apt|Suite)',
-                        'minItems': 1,
-                        'maxItems': 1
+                        'pattern': '(Apt|Suite)'
                     },
                     '/worker/person/legalAddress/cityName': {
                         'readOnly': false,
