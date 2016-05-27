@@ -8,7 +8,6 @@ var event = require('../../lib/event');
 var fs = require('fs');
 var testEvent;
 var testEventTwo;
-var payloadTwo;
 
 describe('Event module tests', function describeCb(){
 
@@ -45,7 +44,7 @@ describe('Event module tests', function describeCb(){
 			schemaLocation: '../test/lib/'
 		};
 		testEventTwo = event(opts);
-		testEventTwo.init(function initCb(err) {
+		testEventTwo.init(function initCb() {
 			testEventTwo.validate(done);
 		});
 	});

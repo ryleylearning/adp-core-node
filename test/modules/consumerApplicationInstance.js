@@ -66,8 +66,7 @@ describe('Consumer Application Instance module tests', function describeCb(){
 	});
 
 	it('Fail 9 validations while saving an event', function itCb(done) {
-		app.saveEvent(eventPayload, function execCb(err, data) {
-			console.log(err, data);
+		app.saveEvent(eventPayload, function execCb(err) {
 			err.length.should.equal(9);
 			done();
 		});
@@ -84,8 +83,6 @@ describe('Consumer Application Instance module tests', function describeCb(){
 		eventPayload.events[0].data.transform.worker.person.legalAddress.lineFour = '123';
 		eventPayload.events[0].data.transform.worker.person.legalAddress.lineFive = '123';
 		eventPayload.events[0].data.transform.worker.person.legalAddress.countrySubdivisionLevel2 = {longName: '1231'};
-		// console.log('eventPayload.events[0].data.eventContext.worker.associateOID', eventPayload.events[0].data.eventContext.worker.associateOID);
-		// console.log(JSON.stringify(eventPayload));
 		app.saveEvent(eventPayload, function execCb(err, data) {
 			data.value.should.equal(1);
 			done();
