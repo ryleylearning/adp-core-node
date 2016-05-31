@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: apiProductInstance.js</title>
+    <title>JSDoc: Source: eventListener.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: apiProductInstance.js</h1>
+    <h1 class="page-title">Source: eventListener.js</h1>
 
     
 
@@ -44,70 +44,42 @@ governing permissions and limitations under the License.
 
 'use strict';
 
-var Request = require('./apiRequest');
-var fs = require('fs');
-var interpolate = require('./interpolate');
-var _ = require('underscore');
+var uuid = require('node-uuid');
 
 /**
-@class APIProductInstance
+@class EventListener
+@description Observer for receiving event notification messages.
 */
-function APIProductInstance(conn, product) {
+function EventListener() {
+	var callback;
 
-	this.getAPIProduct = function getAPIProduct() {
-		return product;
-	};
+	/**
+	@memberof EventNotification
+	@description Unique ID.
+	*/
+	this.id = uuid.v4();
 
-	this.getConnection = function getConnection() {
-		return conn;
-	};
-
-	this.getEventNotifications = function getEventNotifications() {
-		var notifications = [];
-		if(!product.notificationCanonicals || typeof product.notificationCanonicals.forEach !== 'function') return notifications;
-		product.notificationCanonicals.forEach(function notificationsForEachCb(notification) {
-			var notificationName = notification.substring(notification.lastIndexOf('/') + 1, notification.length);
-			notifications.push(notificationName);
-		});
-		return notifications;
+	/**
+	@memberof EventListener
+	@description Interface expected for all event listeners. This method is called when an 
+	event notification message is received. Executes callback set with `EventListener.setCallback()`
+	@param message {object} JSON
+	*/
+	this.notify = function notify(message) {
+		callback(message);
 	};
 
 	/**
-	@memberof APIProductInstance
-	@description Abstracted method to call available `methods` API Products mapped in the instances of {@link APIProduct}.
-	@param methodName {string} Method name. See example below.
-	@param cb {function} Function to execute upon response from method call.
-	@example APIProductInstance.call('read', callbackFunction);
+	@memberof EventListener
+	@description Sets callback function to be executed by `EventListener.notify()`.
+	@param callback {function} Callback function
 	*/
-	this.exec = function exec(methodName, opts, cb) {
-		var apicall = _.where(product.calls, {methodName: methodName})[0];
-		if(apicall) {
-			var path = interpolate(apicall.path, opts);
-			var options = {
-				requestDesc: product.productName + '.' + methodName,
-				httpMethod: apicall.method,
-				payload: opts.payload,
-				url: conn.connType.apiUrl + path,
-				headers: {
-					Authorization: 'Bearer ' + conn.accessToken,
-					'If-None-Match': 'None'
-				},
-				agentOptions: {
-					ca: [fs.readFileSync(conn.connType.sslCertPath)],
-					key: fs.readFileSync(conn.connType.sslKeyPath),
-					cert: fs.readFileSync(conn.connType.sslCertPath)
-				}
-			};
-			new Request(options, cb);
-		} else {
-			cb(new ReferenceError('Invalid method name. Failed to find method `' + methodName + '`'), null);
-		}
+	this.setCallback = function setCallback(cb) {
+		callback = cb;
 	};
-
 }
 
-
-module.exports = APIProductInstance;
+module.exports = EventListener;
 </code></pre>
         </article>
     </section>

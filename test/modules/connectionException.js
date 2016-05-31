@@ -1,7 +1,7 @@
 'use strict';
 require('chai').should();
 
-var ConnectionException = require('../lib/connectionException');
+var ConnectionException = require('../../lib/connectionException');
 
 describe('Connection Exception module tests', function describeCb(){
 
@@ -11,18 +11,16 @@ describe('Connection Exception module tests', function describeCb(){
 			oauthResponse: {
 				error: 'invalid_scope'
 			}
-		}
+		};
 		var ex = new ConnectionException(errObj);
-		(ex.statusDesc).should.equal('Found');
-		console.log(ex);
+		ex.statusDesc.should.equal('Found');
 		done();
 	});
 
 	it('Should return default exception object.', function itCb(done) {
-		var errObj = {}
+		var errObj = {};
 		var ex = new ConnectionException(errObj);
-		(ex.statusDesc).should.equal('No Status Description');
-		console.log(ex);
+		ex.statusDesc.should.equal('No Status Description');
 		done();
 	});
 });
