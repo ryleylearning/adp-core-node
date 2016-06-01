@@ -51,6 +51,10 @@ app.get('/testmetatwo', function metaGetCb(req, res) {
 	res.status(200).send(mockMetaTwo());
 });
 
+app.get('/testmetathree', function metaGetCb(req, res) {
+	res.status(500).send({});
+});
+
 app.get('/codelist', function codelistCb(req, res) {
 	console.log('HTTP CODELIST');
 	var codeList = {

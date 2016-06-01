@@ -8,6 +8,7 @@ var event = require('../../lib/event');
 var fs = require('fs');
 var testEvent;
 var testEventTwo;
+var testEventThree;
 
 describe('Event module tests', function describeCb(){
 
@@ -46,6 +47,19 @@ describe('Event module tests', function describeCb(){
 		testEventTwo = event(opts);
 		testEventTwo.init(function initCb() {
 			testEventTwo.validate(done);
+		});
+	});
+
+
+	it('Initializes a third event', function itCb(done) {
+		var opts = {
+			conn: mockConnection,
+			apiInfo: mockAppConfig().calls[2],
+			schemaLocation: '../test/lib/'
+		};
+		testEventThree = event(opts);
+		testEventThree.init(function initCb() {
+			testEventThree.validate(done);
 		});
 	});
 
