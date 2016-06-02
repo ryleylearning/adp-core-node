@@ -31,6 +31,14 @@ describe('Consumer Application Instance module tests', function describeCb(){
 		});
 	});
 
+	it('Executes a GET API with null for opts', function itCb(done) {
+		app = consumerApp(mockConnection, mockAppConfig());
+		app.exec('test_get', null, function execCb(err, data) {
+			data.value.should.equal(1);
+			done();
+		});
+	});
+
 	it('Fails to execute an invalid method', function itCb(done) {
 		app.exec('test_invalid', {}, function execCb(err) {
 			err.message.should.equal('Invalid method name. Failed to find method `test_invalid`');
