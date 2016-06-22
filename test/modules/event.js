@@ -149,7 +149,7 @@ describe('Event module tests', function describeCb(){
 			apiInfo: mockAppConfig().calls[0],
 			schemaLocation: '../test/lib/'
 		};
-		var testMeta = require('../../meta/testmeta.json');
+		var testMeta = require('../../meta/88a73992-07f2-4714-ab4b-de782acd9c4d.testmeta.json');
 		testMeta.expiration = new Date('01/01/2000');
 		testEvent = event(opts);
 		testEvent.init(function initCb(err) {
