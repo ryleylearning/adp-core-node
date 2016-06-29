@@ -60,6 +60,19 @@ describe('Consumer Application Instance module tests', function describeCb(){
 		done();
 	});
 
+	it('Get event rules', function itCb(done) {
+		app = consumerApp(mockConnection, mockAppConfig());
+		var opts = {
+			methodName: 'test_event',
+			schemaLocation: '../test/lib/'
+		};
+		app.getEventRules(opts, function execCb(err, rules) {
+			rules.length.should.equal(7);
+			(typeof rules.forEach).should.equal('function');
+			done();
+		});
+	});
+
 	it('Get an event payload', function itCb(done) {
 		app = consumerApp(mockConnection, mockAppConfig());
 		var opts = {
