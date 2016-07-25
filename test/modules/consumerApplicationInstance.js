@@ -128,5 +128,12 @@ describe('Consumer Application Instance module tests', function describeCb(){
 		});
 	});
 
+
+	it('Receive event notification and delete message from queue.', function itCb(done) {
+		app.getNextEvent(function getNextEventCb(err, msg) {
+			done();
+		});
+	});
+
 });
 
