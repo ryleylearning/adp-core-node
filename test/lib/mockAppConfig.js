@@ -51,6 +51,20 @@ module.exports = function mockConfig() {
 				'path': '/testdelete',
 				'method': 'DELETE',
 				'methodName': 'test_delete'
+			},
+			{
+				'canonicalUri': '/core/messageCenterManagement/notificationManagement/notificationViewing/notificationEvent.delete',
+				'path': '/core/v1/event-notification-messages/{event-id}',
+				'metaPath': '',
+				'method': 'DELETE',
+				'methodName': 'DELETE_core_v1_event_notification_messages_event_id'
+			},
+			{
+				'canonicalUri': '/core/messageCenterManagement/notificationManagement/notificationViewing/notificationEvent.read',
+				'path': '/core/v1/event-notification-messages',
+				'metaPath': '',
+				'method': 'GET',
+				'methodName': 'GET_core_v1_event_notification_messages'
 			}
 		]
 	};

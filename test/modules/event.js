@@ -84,7 +84,7 @@ describe('Event module tests', function describeCb(){
 		payload.events[0].data.transform.worker.person.legalAddress.countryCode = 'US';
 		testEvent.setPayload(payload);
 		testEvent.validate(function validateCb(err, validationErrors) {
-			validationErrors.length.should.equal(7);
+			validationErrors.length.should.equal(6);
 			done();
 		});
 	});
@@ -98,7 +98,7 @@ describe('Event module tests', function describeCb(){
 		payload.events[0].data.transform.worker.person.legalAddress.countryCode = 'AA';
 		testEvent.setPayload(payload);
 		testEvent.validate(function validateCb(err, validationErrors) {
-			validationErrors.length.should.equal(5);
+			validationErrors.length.should.equal(4);
 			done();
 		});
 	});

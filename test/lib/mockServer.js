@@ -89,6 +89,15 @@ app.get('/dynamicCodelist', function codelistCb(req, res) {
 	res.status(200).send(codeList);
 });
 
+app.get('/core/v1/event-notification-messages', function codelistCb(req, res) {
+	res.setHeader('adp-msg-msgid', '12345');
+	res.status(200).send({events: [{}]});
+});
+
+app.delete('/core/v1/event-notification-messages/{event-id}', function codelistCb(req, res) {
+	res.status(200).send({});
+});
+
 var server;
 
 function start(cb) {
