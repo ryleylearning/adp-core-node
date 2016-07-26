@@ -3,12 +3,13 @@ require('chai').should();
 
 var mockServer = require('../lib/mockServer');
 var mockConnection = require('../lib/mockConnection');
-var mockAppConfig = require('../lib/mockAppConfig');
+var mockAppConfig = require('../lib/mockAppConfig.json');
 var event = require('../../lib/event');
 var fs = require('fs');
 var testEvent;
 var testEventTwo;
 var testEventThree;
+var pathToConfig = __dirname + '/../config.zip';
 
 describe('Event module tests', function describeCb(){
 
@@ -28,11 +29,12 @@ describe('Event module tests', function describeCb(){
 	it('Initializes an event', function itCb(done) {
 		var opts = {
 			conn: mockConnection,
-			apiInfo: mockAppConfig().calls[0],
-			schemaLocation: '../test/lib/'
+			apiInfo: mockAppConfig.calls[0],
+			schemaLocation: pathToConfig
 		};
 		var myEvent = event(opts);
 		myEvent.init(function initCb(err) {
+			console.log(err);
 			(err === null).should.equal(true);
 			done();
 		});
@@ -41,8 +43,8 @@ describe('Event module tests', function describeCb(){
 	it('Initializes a second event', function itCb(done) {
 		var opts = {
 			conn: mockConnection,
-			apiInfo: mockAppConfig().calls[1],
-			schemaLocation: '../test/lib/'
+			apiInfo: mockAppConfig.calls[1],
+			schemaLocation: pathToConfig
 		};
 		testEventTwo = event(opts);
 		testEventTwo.init(function initCb() {
@@ -54,8 +56,8 @@ describe('Event module tests', function describeCb(){
 	it('Initializes a third event', function itCb(done) {
 		var opts = {
 			conn: mockConnection,
-			apiInfo: mockAppConfig().calls[2],
-			schemaLocation: '../test/lib/'
+			apiInfo: mockAppConfig.calls[2],
+			schemaLocation: pathToConfig
 		};
 		testEventThree = event(opts);
 		testEventThree.init(function initCb() {
@@ -66,8 +68,8 @@ describe('Event module tests', function describeCb(){
 	it('Initializes an event from local source', function itCb(done) {
 		var opts = {
 			conn: mockConnection,
-			apiInfo: mockAppConfig().calls[0],
-			schemaLocation: '../test/lib/'
+			apiInfo: mockAppConfig.calls[0],
+			schemaLocation: pathToConfig
 		};
 		testEvent = event(opts);
 		testEvent.init(function initCb(err) {
@@ -146,8 +148,8 @@ describe('Event module tests', function describeCb(){
 	it('Fails to initialize an event from local source that has expired', function itCb(done) {
 		var opts = {
 			conn: mockConnection,
-			apiInfo: mockAppConfig().calls[0],
-			schemaLocation: '../test/lib/'
+			apiInfo: mockAppConfig.calls[0],
+			schemaLocation: pathToConfig
 		};
 		var testMeta = require('../../meta/88a73992-07f2-4714-ab4b-de782acd9c4d.testmeta.json');
 		testMeta.expiration = new Date('01/01/2000');
