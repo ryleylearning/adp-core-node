@@ -3,10 +3,12 @@ require('chai').should();
 
 var mockServer = require('../lib/mockServer');
 var mockConnection = require('../lib/mockConnection');
-var mockAppConfig = require('../lib/mockAppConfig');
+// var mockAppConfig = require('../lib/mockAppConfig');
 var consumerApp = require('../../lib/consumerApplicationInstance');
 var fs = require('fs');
 var app;
+var pathToConfig = __dirname + '/../config.zip';
+
 describe('API Request module tests', function describeCb(){
 
 	before(function beforeCb(done) {
@@ -22,24 +24,34 @@ describe('API Request module tests', function describeCb(){
 		mockServer.stop(done);
 	});
 
-	it('Hndles error response', function itCb(done) {
-		app = consumerApp(mockConnection, mockAppConfig());
+
+	it('Handles error response', function itCb(done) {
+		app = consumerApp(mockConnection, pathToConfig);
 		app.exec('test_fail_one', {}, function execCb(err) {
-			err.message.should.equal('mock app.test_fail_one responded with status code 500');
-			done();
+			console.log(err);
+			try{
+				err.message.should.equal('mock app.test_fail_one responded with status code 500');
+				done();
+			} catch(e) {
+				done(e);
+			}
 		});
 	});
 
 	it('Successful GET request with invalid json response', function itCb(done) {
-		app = consumerApp(mockConnection, mockAppConfig());
+		app = consumerApp(mockConnection, pathToConfig);
 		app.exec('test_fail_two', {}, function execCb(err) {
-			err.message.should.equal('Invalid JSON. mock app.test_fail_two responded with status code 200');
-			done();
+			try{
+				err.message.should.equal('Invalid JSON. mock app.test_fail_two responded with status code 200');
+				done();
+			} catch(e) {
+				done(e);
+			}
 		});
 	});
 
 	it('Executes a DELETE API', function itCb(done) {
-		app = consumerApp(mockConnection, mockAppConfig());
+		app = consumerApp(mockConnection, pathToConfig);
 		app.exec('test_delete', {}, function execCb(err, data) {
 			data.value.should.equal(1);
 			done();
@@ -61,7 +73,7 @@ describe('API Request module tests', function describeCb(){
 			accessToken: 'someAccessTokenValue',
 			connect: function connect() {}
 		};
-		app = consumerApp(badConn, mockAppConfig());
+		app = consumerApp(badConn, pathToConfig);
 		app.exec('test_delete', {}, function execCb(err) {
 			err.statusCode.should.equal(0);
 			done();

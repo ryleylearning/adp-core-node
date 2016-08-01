@@ -3,11 +3,13 @@ require('chai').should();
 
 var mockServer = require('../lib/mockServer');
 var mockConnection = require('../lib/mockConnection');
-var mockAppConfig = require('../lib/mockAppConfig');
+// var mockAppConfig = require('../lib/mockAppConfig');
 var consumerApp = require('../../lib/consumerApplicationInstance');
 var fs = require('fs');
 var eventPayload;
 var app;
+var pathToConfig = __dirname + '/../config.zip';
+
 describe('Consumer Application Instance module tests', function describeCb(){
 
 	before(function beforeCb(done) {
@@ -24,7 +26,7 @@ describe('Consumer Application Instance module tests', function describeCb(){
 	});
 
 	it('Executes a GET API', function itCb(done) {
-		app = consumerApp(mockConnection, mockAppConfig());
+		app = consumerApp(mockConnection, pathToConfig);
 		app.exec('test_get', {}, function execCb(err, data) {
 			data.value.should.equal(1);
 			done();
@@ -32,7 +34,7 @@ describe('Consumer Application Instance module tests', function describeCb(){
 	});
 
 	it('Executes a GET API with null for opts', function itCb(done) {
-		app = consumerApp(mockConnection, mockAppConfig());
+		app = consumerApp(mockConnection, pathToConfig);
 		app.exec('test_get', null, function execCb(err, data) {
 			data.value.should.equal(1);
 			done();
@@ -61,20 +63,24 @@ describe('Consumer Application Instance module tests', function describeCb(){
 	});
 
 	it('Get event rules', function itCb(done) {
-		app = consumerApp(mockConnection, mockAppConfig());
+		app = consumerApp(mockConnection, pathToConfig);
 		var opts = {
 			methodName: 'test_event',
 			schemaLocation: '../test/lib/'
 		};
 		app.getEventRules(opts, function execCb(err, rules) {
-			rules.length.should.equal(7);
-			(typeof rules.forEach).should.equal('function');
-			done();
+			try{
+				rules.length.should.equal(7);
+				(typeof rules.forEach).should.equal('function');
+				done();
+			}catch(e) {
+				done(e);
+			}
 		});
 	});
 
 	it('Get an event payload', function itCb(done) {
-		app = consumerApp(mockConnection, mockAppConfig());
+		app = consumerApp(mockConnection, pathToConfig);
 		var opts = {
 			methodName: 'test_event',
 			schemaLocation: '../test/lib/'
