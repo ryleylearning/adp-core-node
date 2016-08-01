@@ -76,6 +76,7 @@ describe('Consumer Application Instance module tests', function describeCb(){
 			}catch(e) {
 				done(e);
 			}
+
 		});
 	});
 
