@@ -19,7 +19,7 @@
     "async": "^1.5.2",
     "deep-pluck": "^0.1.2",
     "json-schema-compatibility": "^1.1.0",
-    "jszip": "^2.6.1",
+    "jszip": "^3.0.0",
     "lodash": "^4.6.1",
     "node-uuid": "^1.4.7",
     "request": "^2.69.0",
