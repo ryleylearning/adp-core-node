@@ -92,9 +92,9 @@ describe('Consumer Application Instance module tests', function describeCb(){
 		});
 	});
 
-	it('Fail 9 validations while saving an event', function itCb(done) {
+	it('Fail 8 validations while saving an event', function itCb(done) {
 		app.saveEvent(eventPayload, function execCb(err) {
-			err.length.should.equal(9);
+			err.length.should.equal(8);
 			done();
 		});
 	});
@@ -104,13 +104,14 @@ describe('Consumer Application Instance module tests', function describeCb(){
 		eventPayload.events[0].data.transform.worker.person.legalAddress.countryCode = 'AA';
 		eventPayload.events[0].data.transform.worker.person.legalAddress.postalCode = '123456';
 		eventPayload.events[0].data.transform.worker.person.legalAddress.cityName = 'some city';
-		eventPayload.events[0].data.transform.worker.person.legalAddress.lineOne = [{some: 'Suite'}];
+		eventPayload.events[0].data.transform.worker.person.legalAddress.lineOne = '123 st';
 		eventPayload.events[0].data.transform.worker.person.legalAddress.lineTwo = 'Suite';
 		eventPayload.events[0].data.transform.worker.person.legalAddress.lineThree = '123';
 		eventPayload.events[0].data.transform.worker.person.legalAddress.lineFour = '123';
 		eventPayload.events[0].data.transform.worker.person.legalAddress.lineFive = '123';
 		eventPayload.events[0].data.transform.worker.person.legalAddress.countrySubdivisionLevel2 = {longName: '1231'};
 		app.saveEvent(eventPayload, function execCb(err, data) {
+			console.log(err);
 			data.value.should.equal(1);
 			done();
 		});

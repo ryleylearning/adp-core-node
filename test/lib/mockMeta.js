@@ -10,9 +10,7 @@ module.exports = function meta() {
                         'optional': false,
                         'hidden': false,
                         'shortLabelName': 'Address',
-                        'longLabelName': 'Address',
-                        'minItems': 1,
-                        'maxItems': 1
+                        'longLabelName': 'Address'
                     },
                     '/worker/person/legalAddress/lineTwo': {
                         'readOnly': false,
