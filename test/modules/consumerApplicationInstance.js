@@ -112,7 +112,7 @@ describe('Consumer Application Instance module tests', function describeCb(){
 		eventPayload.events[0].data.transform.worker.person.legalAddress.lineFive = '123';
 		eventPayload.events[0].data.transform.worker.person.legalAddress.countrySubdivisionLevel2 = {longName: '1231'};
 		app.saveEvent(eventPayload, function execCb(err, data) {
-			console.log(err);
+			// console.log(err);
 			data.value.should.equal(1);
 			done();
 		});
@@ -138,6 +138,7 @@ describe('Consumer Application Instance module tests', function describeCb(){
 
 
 	it('Receive event notification and delete message from queue.', function itCb(done) {
+		app = consumerApp(mockConnection, pathToConfig);
 		app.getNextEvent(function getNextEventCb(err, msg) {
 			done();
 		});

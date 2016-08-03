@@ -79,6 +79,10 @@ module.exports = function meta() {
                         "minItems": 0,
                         "maxItems": 1
                     },
+                    "/worker/person/legalName/preferredSalutationsFoo": {
+                        "minItems": 3,
+                        "maxItems": 4
+                    },
                     "/worker/person/legalName": {
                         "readOnly": false,
                         "optional": false
