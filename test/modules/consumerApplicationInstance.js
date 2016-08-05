@@ -3,7 +3,6 @@ require('chai').should();
 
 var mockServer = require('../lib/mockServer');
 var mockConnection = require('../lib/mockConnection');
-// var mockAppConfig = require('../lib/mockAppConfig');
 var consumerApp = require('../../lib/consumerApplicationInstance');
 var fs = require('fs');
 var eventPayload;
@@ -70,6 +69,7 @@ describe('Consumer Application Instance module tests', function describeCb(){
 		};
 		app.getEventRules(opts, function execCb(err, rules) {
 			try{
+				console.log(rules)
 				rules.length.should.equal(7);
 				(typeof rules.forEach).should.equal('function');
 				done();

@@ -3,7 +3,6 @@ require('chai').should();
 
 var mockServer = require('../lib/mockServer');
 var mockConnection = require('../lib/mockConnection');
-// var mockAppConfig = require('../lib/mockAppConfig');
 var consumerApp = require('../../lib/consumerApplicationInstance');
 var fs = require('fs');
 var app;
