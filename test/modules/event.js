@@ -148,7 +148,7 @@ describe('Event module tests', function describeCb(){
 		done();
 	});
 
-	it('Fails to initialize an event from local source that has expired', function itCb(done) {
+	xit('Fails to initialize an event from local source that has expired (DEPRECATED)', function itCb(done) {
 		var opts = {
 			conn: mockConnection,
 			apiInfo: mockAppConfig.calls[0],
