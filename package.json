@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "coverage": "NODE_DEBUG=adp-core NODE_ENV=TEST istanbul cover _mocha; cp coverage/lcov-report/index.html test/coverage.html",
-    "docs": "jsdoc ./lib -r -p -d docs/",
     "test": "mocha",
     "lint": "eslint ./"
   },
@@ -31,7 +30,6 @@
     "eslint": "^2.1.0",
     "express": "^4.13.4",
     "istanbul": "^0.4.2",
-    "jsdoc": "^3.4.0",
     "mocha": "^2.4.5"
   }
 }
