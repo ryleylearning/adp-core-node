@@ -68,6 +68,7 @@ describe('Consumer Application Instance module tests', function describeCb(){
 			schemaLocation: '../test/lib/'
 		};
 		app.getEventRules(opts, function execCb(err, rules) {
+			console.log('ERRR', err);
 			try{
 				console.log(rules)
 				rules.length.should.equal(7);
