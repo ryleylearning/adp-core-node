@@ -40,6 +40,10 @@ const configPath = __dirname + './config.zip';
 const app = adpCore.consumerApplicationInstance(conn, configPath);
 ```
 
+---
+---
+---
+---
 # Consumer Application Instance
 
 ## createEvent
