@@ -11,7 +11,7 @@ $ npm install adp-connection adp-core
 ```
 
 # Usage 
-## [API Docs & Examples](/docs)
+## [API Docs & Examples](docs)
 
 # Contributing
 To contribute to the library, please generate a pull request. Before generating the pull request, please insure the following:
