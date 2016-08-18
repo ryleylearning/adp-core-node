@@ -1,29 +1,25 @@
 # ADP Core Library
 
-The ADP Core library houses utilities used with ADP Connection and ADP Product libraries.
+The ADP Core library allows interaction with your ADP Marketplace consumer application. Use with ADP Connection to access ADP APIs.
 
 ### Version
-`1.0.10`
+`2.0.0`
 
-### Installation
+### Installation (with adp-connection)
 ```sh
-$ npm install adp-core
+$ npm install adp-connection adp-core
 ```
 
 # Usage 
-This library is used with ADP Connection and ADP Product libraries.
+## [API Docs & Examples](/docs)
 
 # Contributing
 To contribute to the library, please generate a pull request. Before generating the pull request, please insure the following:
 1. Appropriate unit tests have been updated or created.
-2. Code coverage on unit tests must be no less than 95%.
+2. Code coverage on unit tests must be no less than 100%.
 3. Your code updates have been fully tested and linted with no errors. 
 4. Update README and API documentation as appropriate.
 
-# API Documentation (JSDoc)
-```sh
-$ npm run docs
-```
 
 # Test Execution
 ```sh
