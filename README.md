@@ -5,6 +5,9 @@ The ADP Core library allows interaction with your ADP Marketplace consumer appli
 ### Version
 `2.0.0`
 
+### Previous version support 
+`npm install adp-core@1.0.10`
+
 ### Installation (with adp-connection)
 ```sh
 $ npm install adp-connection adp-core
