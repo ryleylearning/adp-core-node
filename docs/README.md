@@ -209,7 +209,7 @@ The result set will be either validation errors or a successful save body.
 
 ```js
 const app = adpCore.consumerApplicationInstance(conn, configPath);
-const eventCreated = (err, payload) {
+const eventCreated = (err, payload) => {
     payload.events[0].data.eventContext.associateOID = '0000000000000000';
     payload.events[0].data.transform.worker.person.legalName.givenName = 'Doe';
     app.saveEvent(payload, eventSaved);
