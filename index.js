@@ -25,6 +25,7 @@ var event = require('./lib/event');
 var connectionException = require('./lib/connectionException');
 var configurationException = require('./lib/configurationException');
 var apiException = require('./lib/apiException');
+var metaHelper = require('./lib/metaHelper');
 var configHelper = require('./lib/configHelper');
 
 module.exports = {
@@ -36,5 +37,6 @@ module.exports = {
 	configurationException: configurationException,
 	apiException: apiException,
 	configHelper: configHelper,
+	metaHelper: metaHelper,
 	event: event
 };
