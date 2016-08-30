@@ -1,5 +1,7 @@
 # ADP Core Library
 
+[![Join the chat at https://gitter.im/adp-core-node/Lobby](https://badges.gitter.im/adp-core-node/Lobby.svg)](https://gitter.im/adp-core-node/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 The ADP Core library allows interaction with your ADP Marketplace consumer application. Use with ADP Connection to access ADP APIs.
 
 ### Version
