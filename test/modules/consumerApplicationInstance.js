@@ -112,6 +112,8 @@ describe('Consumer Application Instance module tests', function describeCb(){
 		eventPayload.events[0].data.transform.worker.person.legalAddress.lineFour = '123';
 		eventPayload.events[0].data.transform.worker.person.legalAddress.lineFive = '123';
 		eventPayload.events[0].data.transform.worker.person.legalAddress.countrySubdivisionLevel2 = {longName: '1231'};
+		eventPayload.events[0].data.dummy = '';
+
 		app.saveEvent(eventPayload, function execCb(err, data) {
 			// console.log(err);
 			data.value.should.equal(1);

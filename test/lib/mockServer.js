@@ -57,15 +57,20 @@ app.get('/testmetathree', function metaGetCb(req, res) {
 
 app.get('/codelist', function codelistCb(req, res) {
 	console.log('HTTP CODELIST');
+
 	var codeList = {
-		listItems: [
+		codeLists: [
 			{
-				codeValue: 'AA',
-				shortName: 'AyeAye'
-			},
-			{
-				codeValue: 'BB',
-				shortName: 'BeeBee'
+				listItems: [
+					{
+						codeValue: 'AA',
+						shortName: 'AyeAye'
+					},
+					{
+						codeValue: 'BB',
+						shortName: 'BeeBee'
+					}
+				]
 			}
 		]
 	};
@@ -75,14 +80,18 @@ app.get('/codelist', function codelistCb(req, res) {
 app.get('/dynamicCodelist', function codelistCb(req, res) {
 	console.log('HTTP DYNAMIC CODELIST');
 	var codeList = {
-		listItems: [
+		codeLists: [
 			{
-				codeValue: 'CC',
-				shortName: 'SeeSee'
-			},
-			{
-				codeValue: 'DD',
-				shortName: 'Deed'
+				listItems: [
+					{
+						codeValue: 'CC',
+						shortName: 'SeeSee'
+					},
+					{
+						codeValue: 'DD',
+						shortName: 'Deed'
+					}
+				]
 			}
 		]
 	};
