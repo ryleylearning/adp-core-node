@@ -88,20 +88,24 @@ describe('Consumer Application Instance module tests', function describeCb(){
 			schemaLocation: '../test/lib/'
 		};
 		app.createEvent(opts, function execCb(err, payload) {
+			
 			eventPayload = payload;
 			(typeof eventPayload.eventId).should.equal('string');
 			done();
+			
 		});
 	});
 
 	it('Fail 8 validations while saving an event', function itCb(done) {
 		app.saveEvent(eventPayload, function execCb(err) {
+		console.log('NOW EVENT!!!!!', JSON.stringify(eventPayload))
 			err.length.should.equal(8);
 			done();
 		});
 	});
 
 	it('Save an event', function itCb(done) {
+		console.log('EVENT!!!!!', JSON.stringify(eventPayload))
 		eventPayload.events[0].data.eventContext.worker.associateOID = '123';
 		eventPayload.events[0].data.transform.worker.person.legalAddress.countryCode = 'AA';
 		eventPayload.events[0].data.transform.worker.person.legalAddress.postalCode = '123456';
@@ -115,7 +119,7 @@ describe('Consumer Application Instance module tests', function describeCb(){
 		eventPayload.events[0].data.dummy = '';
 
 		app.saveEvent(eventPayload, function execCb(err, data) {
-			// console.log(err);
+			console.log('SAVE ERROR?',  err);
 			data.value.should.equal(1);
 			done();
 		});
