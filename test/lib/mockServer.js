@@ -43,11 +43,9 @@ app.post('/testfailtwo', function testsuccessCb(req, res) {
 });
 
 app.get('/testmeta', function metaGetCb(req, res) {
-	console.log('HTTP META');
 	res.status(200).send(mockMeta());
 });
 app.get('/testmetatwo', function metaGetCb(req, res) {
-	console.log('HTTP SECOND META');
 	res.status(200).send(mockMetaTwo());
 });
 
@@ -56,7 +54,6 @@ app.get('/testmetathree', function metaGetCb(req, res) {
 });
 
 app.get('/codelist', function codelistCb(req, res) {
-	console.log('HTTP CODELIST');
 
 	var codeList = {
 		codeLists: [
@@ -78,7 +75,6 @@ app.get('/codelist', function codelistCb(req, res) {
 });
 
 app.get('/dynamicCodelist', function codelistCb(req, res) {
-	console.log('HTTP DYNAMIC CODELIST');
 	var codeList = {
 		codeLists: [
 			{

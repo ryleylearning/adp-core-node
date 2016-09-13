@@ -27,7 +27,6 @@ describe('API Request module tests', function describeCb(){
 	it('Handles error response', function itCb(done) {
 		app = consumerApp(mockConnection, pathToConfig);
 		app.exec('test_fail_one', {}, function execCb(err) {
-			console.log(err);
 			try{
 				err.message.should.equal('mock app.test_fail_one responded with status code 500');
 				done();

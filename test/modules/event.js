@@ -34,7 +34,6 @@ describe('Event module tests', function describeCb(){
 		};
 		var myEvent = event(opts);
 		myEvent.init(function initCb(err) {
-			console.log(err);
 			(err === null).should.equal(true);
 			done();
 		});
@@ -49,7 +48,6 @@ describe('Event module tests', function describeCb(){
 		testEventTwo = event(opts);
 		testEventTwo.init(function initCb() {
 			testEventTwo.validate((err) => {
-				// console.log('errerr', validationErrors);
 				done();
 			});
 		});

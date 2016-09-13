@@ -9,7 +9,6 @@ describe('Config helper module tests', function describeCb(){
 	it('Should fail to return file with invalid JSON.', function itCb(done) {
 		var configFile = 'config/invalid.json';
 		function theCb(err) {
-			console.log(err);
 			done();
 		}
 		configHelper.extractFromZip(pathToConfig, configFile, theCb, theCb);
@@ -17,7 +16,6 @@ describe('Config helper module tests', function describeCb(){
 
 	it('Should fail to return file that does not exist in config.', function itCb(done) {
 		function theCb(err) {
-			console.log(err);
 			done();
 		}
 		configHelper.extractFromZip(pathToConfig, 'invalidFileName', theCb, theCb);
@@ -26,7 +24,6 @@ describe('Config helper module tests', function describeCb(){
 	it('Should fail to find config when config file path is invalid.', function itCb(done) {
 		var configFile = 'config/invalid.json';
 		function theCb(err) {
-			console.log(err);
 			done();
 		}
 		configHelper.extractFromZip('bogus', configFile, theCb, theCb);
